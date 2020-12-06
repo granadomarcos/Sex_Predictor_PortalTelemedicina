@@ -1,3 +1,6 @@
+'''
+Imports
+'''
 from sklearn.model_selection import cross_val_predict
 from sklearn import metrics
 import matplotlib.pyplot as plt
@@ -14,11 +17,17 @@ import joblib
 import sys
 
 
-#print sys.argv[1]
+'''
+Read new sample data from command line
+'''
 dataset_pre = open(sys.argv[1], 'rb')
 
 dataset_pre = pd.read_csv(ofile, sep=',')
 
+
+'''
+Data preprocessing
+'''
 #Checando valores Missing
 dataset_pre.isnull().sum()
 
@@ -30,11 +39,21 @@ def remove_features(lista_features):
         dataset_pre.drop(i, axis=1, inplace=True)
     return 0
 
-# Remove features
+# Remove index feature
 remove_features(['index'])
 
+'''
+Loading trained model from disk
+'''
 model = joblib.load('model.pkl')
+
+'''
+Predict new data
+'''
 
 df = pd.DataFrame({'sex':model.predict(dataset_pre)})
 
+'''
+Save csv file with new prediction
+'''
 df.to_csv('newsample_PREDICTIONS_MARCOSGRANADO_.csv', sep=',', index=False)
