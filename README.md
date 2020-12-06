@@ -25,3 +25,7 @@ the script is used this way:
 
 The model used to predict the pacient gender was a Suport Vector Machine (SVM)
 
+
+## Jupyter Notebook DataAnalysis
+
+Notebook with statistics about the dataset provided.
