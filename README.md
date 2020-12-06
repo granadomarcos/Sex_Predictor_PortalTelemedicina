@@ -19,3 +19,9 @@ the script is used this way:
 
 the script is used this way:
         (env) python model_trainer.py test_data_CANDIDATE.csv
+
+
+## Model Used
+
+The model used to predict the pacient gender was a Suport Vector Machine (SVM)
+
